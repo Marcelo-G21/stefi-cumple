@@ -39,7 +39,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
     {
       title: "Tu forma de ser",
       description:
-        "No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada locura que compartes, cada charla extensa, cada juego, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella <3",
+        "No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada charla extensa, cada juego, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella <3",
       compliment: "Tu existencia es simplemente hermosa ❀࿐",
     },
   ];
