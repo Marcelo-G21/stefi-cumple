@@ -8,20 +8,21 @@ export default function BirthdayPoints({ onPrev, onNext }) {
     {
       title: "Responsable y dedicada",
       description:
-        "Buscas realizar las cosas poniendo mucha atención a los detalles, siempre intentando hacerlo lo mejor posible. No puedo evitar sentir una gran admiración por tí. Has demostrado que lo que te planteas, lo haces, eres realmente ejemplar.",
+        "Buscas realizar las cosas poniendo mucha atención a los detalles, siempre intentando hacerlo lo mejor posible. No puedo evitar sentir una gran admiración por tí. Has demostrado que lo que te planteas, lo haces, eres realmente ejemplar✧",
       compliment: "Eres admirable ⊹₊⟡⋆",
     },
     {
       title: "Tu humor",
       description:
-        "Tus bromas random, los gestos graciosos que haces, cada momento divertido ilumina más de lo que crees. Es un razgo característico tuyo que hace la vida mucho más feliz. Diría que es un razgo que te vuelve encantadora :3",
+        "Tus bromas random, los gestos graciosos que haces, cada momento divertido ilumina más de lo que crees. Es un razgo característico tuyo que hace la vida mucho más feliz. Siento que es un razgo que te vuelve encantadora :3",
       compliment: "Eres un rayito de sol ⋆☀︎｡",
     },
     {
       title: "Tu visión de la moda",
       description:
-        "Tu forma de ver la moda, el como realmente cada uno tiene su estilo propio, me inspira mucho, jamás lo había visto de esa forma. Me has ayudado demasiado en cuanto a mi imagen propia. No olvides tu sueño, porque sé que eres capaz de hacer lo que te propongas :3",
-      compliment: "Eres capaz de ayudar a mucha gente ( ꈍ◡ꈍ)",
+        "Tu forma de ver la moda, el como realmente cada uno tiene su estilo propio, me inspira mucho, jamás lo había visto de esa forma. Me has ayudado demasiado en cuanto a mi imagen propia. No olvides tu sueño, porque sé que eres capaz de hacer lo que te propongas <3",
+      compliment: "Eres capaz de grandes cosas",
+      compliment2: "( ꈍ◡ꈍ)",
     },
     {
       title: "Inteligente y razonable",
@@ -38,8 +39,8 @@ export default function BirthdayPoints({ onPrev, onNext }) {
     {
       title: "Tu forma de ser",
       description:
-        "No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada locura que compartes, cada charla extensa, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella.",
-      compliment: "Simplemente adoro tu hermosa existencia ❀࿐",
+        "No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada locura que compartes, cada charla extensa, cada juego, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella <3",
+      compliment: "Tu existencia es simplemente hermosa ❀࿐",
     },
   ];
 
@@ -75,12 +76,11 @@ export default function BirthdayPoints({ onPrev, onNext }) {
         animate="visible"
         variants={container}
         className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-2xl p-8 max-w-md w-full border-4 border-pink-300"
-        
       >
         <h2 className="text-xl font-bold mb-6 text-pink-400 text-center">
           Algunas razones por las que eres maravillosa
         </h2>
-  
+
         <ul className="space-y-6">
           {visiblePoints.map((point, i) => (
             <motion.li
@@ -94,15 +94,20 @@ export default function BirthdayPoints({ onPrev, onNext }) {
                 {point.title}
               </h3>
               <p className="text-gray-700 line-clamp-4">{point.description}</p>
-  
+
               {/* Compliment separado */}
               <p className="mt-3 text-pink-400 text-center font-[cursive] text-lg">
                 {point.compliment}
               </p>
+              {point.compliment2 && (
+                <p className="text-pink-400 text-center font-[cursive] text-lg">
+                  {point.compliment2}
+                </p>
+              )}
             </motion.li>
           ))}
         </ul>
-  
+
         {/* Controles de navegación */}
         <div className="mt-6 flex items-center justify-center space-x-4">
           {!isFirstPage && (
@@ -116,7 +121,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
               <FaArrowLeft className="text-lg w-4 h-8" />
             </motion.button>
           )}
-  
+
           {!isLastPage ? (
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -140,7 +145,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
           )}
         </div>
       </motion.div>
-  
+
       {/* Modal */}
       <AnimatePresence>
         {expandedText && (
@@ -164,16 +169,20 @@ export default function BirthdayPoints({ onPrev, onNext }) {
                 {expandedText.title}
               </h3>
               <p className="text-gray-700 mb-4">{expandedText.description}</p>
-  
+
               {/* Compliment en el modal también */}
               <p className="text-pink-400 text-center font-[cursive] text-lg">
                 {expandedText.compliment}
               </p>
+              {expandedText.compliment2 && (
+                <p className="text-pink-400 text-center font-[cursive] text-lg">
+                  {expandedText.compliment2}
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
-  
 }

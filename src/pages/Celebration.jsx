@@ -27,7 +27,7 @@ export default function Celebration({ onPrev }) {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="text-md mb-6"
         >
-        Te queremos mucho digo- nyehehe &gt;:3 LSKDFSDF disfruta tu día cariño, este espacio quedará para que recuerdes lo maravillosa que eres y poder sacarte una sonrisa jeje :3 <br /> Te quiero mucho mi solecito &lt;3
+        Te queremos mucho digo- nyehehe &gt;:3 LSKDFSDF disfruta tu día cariño, este espacio quedará para que recuerdes lo maravillosa que eres y poder sacarte una sonrisa jeje :3 <br /> Te quiero muchooo &lt;3
         </motion.p>
 
         <motion.img
