@@ -166,7 +166,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
               <p className="text-gray-700 mb-4">{expandedText.description}</p>
   
               {/* Compliment en el modal también */}
-              <p className="text-pink-400 text-center font-[cursive] text-lg">
+              <p className="text-pink-400 text-center font-noto text-lg">
                 {expandedText.compliment}
               </p>
             </motion.div>
