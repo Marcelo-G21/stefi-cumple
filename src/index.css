@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+@font-face{
+    font-family: Pixelify;
+    src: url("../src/assets/fonts/PixelifySans-Regular.ttf")
+}
+
+body {
+  @apply bg-cover bg-center bg-no-repeat;
+  background-image: url("/fondo.jpg");
+}
+
+.lunita-sprite {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  will-change: left, top, transform;
+  z-index: 100; /* 👈 alto */
+}
+
+@theme{
+    --font-pixelify: Pixelify, "pixelify-sans"
+}
