@@ -140,7 +140,7 @@ export default function Stars({ onNext, onPrev }) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              OMG!! Llegaron 3 invitados ( ˶°ㅁ°) !!
+              OMG!! Tenemos invitados ( ˶°ㅁ°) !!
             </motion.div>
           )}
         </AnimatePresence>

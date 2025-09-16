@@ -15,7 +15,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
       title: "Tu humor",
       description:
         "Tus bromas random, los gestos graciosos que haces, cada momento divertido ilumina más de lo que crees. Es un razgo característico tuyo que hace la vida mucho más feliz. Diría que es un razgo que te vuelve encantadora :3",
-      compliment: "Eres mi rayito de sol ⋆☀︎｡",
+      compliment: "Eres un rayito de sol ⋆☀︎｡",
     },
     {
       title: "Tu visión de la moda",
@@ -135,7 +135,7 @@ export default function BirthdayPoints({ onPrev, onNext }) {
               className="px-6 py-3 bg-pink-400 text-white rounded-xl shadow-md hover:bg-pink-600 transition flex items-center gap-2"
               data-lunita-ignore
             >
-              Seguir explorando <FaArrowRight />
+              Siguiente <FaArrowRight />
             </motion.button>
           )}
         </div>
