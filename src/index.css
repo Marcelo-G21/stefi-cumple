@@ -1,23 +1,22 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-
-@font-face{
-    font-family: Pixelify;
-    src: url("../src/assets/fonts/PixelifySans-Regular.ttf")
+@font-face {
+  font-family: Pixelify;
+  src: url('../src/assets/fonts/PixelifySans-Regular.ttf');
 }
 
 body {
   @apply bg-cover bg-center bg-no-repeat;
-  background-image: url("/fondo.jpg");
+  background-image: url('/fondo.jpg');
 }
 
 .lunita-sprite {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   will-change: left, top, transform;
-  z-index: 100; /* 👈 alto */
+  z-index: 100;
 }
 
-@theme{
-    --font-pixelify: Pixelify, "pixelify-sans"
+@theme {
+  --font-pixelify: Pixelify, 'pixelify-sans';
 }

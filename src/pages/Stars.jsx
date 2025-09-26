@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import BackButton from "../components/BackButton";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import BackButton from '../components/BackButton';
 
 const guests = [
   {
-    name: "Leon S. Kennedy",
-    thumb: "/images/guest1.jpeg",
-    image: "/images/guest1.jpeg",
-    audio: "/audio/guest1.wav",
+    name: 'Leon S. Kennedy',
+    thumb: '/images/guest1.jpeg',
+    image: '/images/guest1.jpeg',
+    audio: '/audio/guest1.wav',
   },
   {
-    name: "Satoru Gojo",
-    thumb: "/images/guest2.jpg",
-    image: "/images/guest2.jpg",
-    audio: "/audio/guest2.wav",
+    name: 'Satoru Gojo',
+    thumb: '/images/guest2.jpg',
+    image: '/images/guest2.jpg',
+    audio: '/audio/guest2.wav',
   },
   {
-    name: "Jeon Jungkook",
-    thumb: "/images/guest3.jpg",
-    image: "/images/guest3.jpg",
-    audio: "/audio/guest3.mp3",
+    name: 'Jeon Jungkook',
+    thumb: '/images/guest3.jpg',
+    image: '/images/guest3.jpg',
+    audio: '/audio/guest3.mp3',
   },
 ];
 
@@ -29,7 +29,6 @@ export default function Stars({ onNext, onPrev }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [showIntro, setShowIntro] = useState(true);
 
-  // Ocultar intro después de 2s
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 2000);
     return () => clearTimeout(timer);

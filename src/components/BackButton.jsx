@@ -1,4 +1,4 @@
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from 'react-icons/fa';
 
 export default function BackButton({ onPrev }) {
   return (

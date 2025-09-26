@@ -1,6 +1,6 @@
 // src/components/Lunita.jsx
-import React, { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Lunita({ isFrozen }) {
   const SIZE = 80;
@@ -11,8 +11,8 @@ export default function Lunita({ isFrozen }) {
   const [target, setTarget] = useState({ x: 150, y: 150 });
   const [position, setPosition] = useState({ x: 150, y: 150 });
   const [frame, setFrame] = useState(0);
-  const [state, setState] = useState("idle"); // idle | walk | sleep | pet
-  const [direction, setDirection] = useState("down");
+  const [state, setState] = useState('idle'); // idle | walk | sleep | pet
+  const [direction, setDirection] = useState('down');
   const [lastInteraction, setLastInteraction] = useState(Date.now());
   const [initialMessage, setInitialMessage] = useState(true);
 
@@ -21,32 +21,32 @@ export default function Lunita({ isFrozen }) {
   const messageTimeout = useRef(null);
 
   const sprites = {
-    idle: ["/sprites/idle1.png", "/sprites/idle2.png"],
+    idle: ['/sprites/idle1.png', '/sprites/idle2.png'],
     sleep: [
-      "/sprites/sleep1.png",
-      "/sprites/sleep2.png",
-      "/sprites/sleep3.png",
-      "/sprites/sleep4.png",
-      "/sprites/sleep5.png",
-      "/sprites/sleep6.png",
-      "/sprites/sleep7.png",
-      "/sprites/sleep8.png",
-      "/sprites/sleep9.png",
-      "/sprites/sleep10.png",
-      "/sprites/sleep11.png",
+      '/sprites/sleep1.png',
+      '/sprites/sleep2.png',
+      '/sprites/sleep3.png',
+      '/sprites/sleep4.png',
+      '/sprites/sleep5.png',
+      '/sprites/sleep6.png',
+      '/sprites/sleep7.png',
+      '/sprites/sleep8.png',
+      '/sprites/sleep9.png',
+      '/sprites/sleep10.png',
+      '/sprites/sleep11.png',
     ],
     walk: {
-      up: ["/sprites/walk_up1.png", "/sprites/walk_up2.png"],
-      down: ["/sprites/walk_down1.png", "/sprites/walk_down2.png"],
-      left: ["/sprites/walk_left1.png", "/sprites/walk_left2.png"],
-      right: ["/sprites/walk_right1.png", "/sprites/walk_right2.png"],
+      up: ['/sprites/walk_up1.png', '/sprites/walk_up2.png'],
+      down: ['/sprites/walk_down1.png', '/sprites/walk_down2.png'],
+      left: ['/sprites/walk_left1.png', '/sprites/walk_left2.png'],
+      right: ['/sprites/walk_right1.png', '/sprites/walk_right2.png'],
     },
     pet: [
-      "/sprites/pet1.png",
-      "/sprites/pet2.png",
-      "/sprites/pet3.png",
-      "/sprites/pet4.png",
-      "/sprites/pet5.png",
+      '/sprites/pet1.png',
+      '/sprites/pet2.png',
+      '/sprites/pet3.png',
+      '/sprites/pet4.png',
+      '/sprites/pet5.png',
     ],
   };
 
@@ -54,47 +54,41 @@ export default function Lunita({ isFrozen }) {
   const frameSpeed = { idle: 300, walk: 250, sleep: 300 };
   const pauseAfterIdle = 1000;
 
-  // dentro de tu componente Lunita, reemplaza el useEffect actual por este:
+  useEffect(() => {
+    const IGNORE_SELECTOR =
+      "button, a, input, textarea, select, label, [role='button'], .card, .no-lunita, [data-lunita-ignore]";
 
-useEffect(() => {
-  const IGNORE_SELECTOR =
-    "button, a, input, textarea, select, label, [role='button'], .card, .no-lunita, [data-lunita-ignore]";
+    const handlePointerDown = (e) => {
+      const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
+      const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
 
-  const handlePointerDown = (e) => {
-    const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
-    const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
+      if (e.target && e.target.closest && e.target.closest(IGNORE_SELECTOR)) {
+        return;
+      }
 
-    // Si el click viene desde un elemento que coincide con IGNORE_SELECTOR -> ignorar
-    if (e.target && e.target.closest && e.target.closest(IGNORE_SELECTOR)) {
-      return;
-    }
+      if (
+        x >= position.x - HALF &&
+        x <= position.x + HALF &&
+        y >= position.y - HALF &&
+        y <= position.y + HALF
+      ) {
+        handlePet();
+        setState('pet');
+        setFrame(0);
+        setLastInteraction(Date.now());
+        return;
+      }
 
-    // Si tocas encima de Lunita -> pet
-    if (
-      x >= position.x - HALF &&
-      x <= position.x + HALF &&
-      y >= position.y - HALF &&
-      y <= position.y + HALF
-    ) {
-      handlePet();
-      setState("pet");
-      setFrame(0);
+      if (isFrozen) return;
+
+      setTarget({ x, y });
+      setState('walk');
       setLastInteraction(Date.now());
-      return;
-    }
+    };
 
-    // Si está "congelada" no caminar
-    if (isFrozen) return;
-
-    setTarget({ x, y });
-    setState("walk");
-    setLastInteraction(Date.now());
-  };
-
-  window.addEventListener("pointerdown", handlePointerDown);
-  return () => window.removeEventListener("pointerdown", handlePointerDown);
-}, [position, isFrozen]);
-
+    window.addEventListener('pointerdown', handlePointerDown);
+    return () => window.removeEventListener('pointerdown', handlePointerDown);
+  }, [position, isFrozen]);
 
   // mensaje inicial
   useEffect(() => {
@@ -106,7 +100,7 @@ useEffect(() => {
 
   // Animación idle
   useEffect(() => {
-    if (state !== "idle") return;
+    if (state !== 'idle') return;
     let isMounted = true;
     let frameIndex = 0;
     let blinkCount = 0;
@@ -141,9 +135,9 @@ useEffect(() => {
 
   // Animación walk y sleep
   useEffect(() => {
-    if (state !== "walk" && state !== "sleep") return;
+    if (state !== 'walk' && state !== 'sleep') return;
     const totalFrames =
-      state === "sleep"
+      state === 'sleep'
         ? sprites.sleep.length
         : sprites.walk[direction]?.length || 1;
     const id = setInterval(() => {
@@ -154,7 +148,7 @@ useEffect(() => {
 
   // Animación pet
   useEffect(() => {
-    if (state !== "pet") return;
+    if (state !== 'pet') return;
 
     let isMounted = true;
     let curFrame = 0;
@@ -166,7 +160,7 @@ useEffect(() => {
       if (curFrame === sprites.pet.length - 1) {
         setTimeout(() => {
           if (!isMounted) return;
-          setState("idle");
+          setState('idle');
           setFrame(0);
         }, 150);
         return;
@@ -185,7 +179,7 @@ useEffect(() => {
   }, [state]);
 
   const handlePet = () => {
-    setState("pet");
+    setState('pet');
     setFrame(0);
     setLastInteraction(Date.now());
     setShowMessage(true);
@@ -198,8 +192,8 @@ useEffect(() => {
   // Inactividad -> sleep
   useEffect(() => {
     const id = setInterval(() => {
-      if (Date.now() - lastInteraction > 5000 && state !== "sleep") {
-        setState("sleep");
+      if (Date.now() - lastInteraction > 5000 && state !== 'sleep') {
+        setState('sleep');
         setFrame(0);
       }
     }, 500);
@@ -212,8 +206,8 @@ useEffect(() => {
     const dy = target.y - position.y;
     let newDirection = direction;
 
-    if (Math.abs(dx) > Math.abs(dy)) newDirection = dx > 0 ? "right" : "left";
-    else newDirection = dy > 0 ? "down" : "up";
+    if (Math.abs(dx) > Math.abs(dy)) newDirection = dx > 0 ? 'right' : 'left';
+    else newDirection = dy > 0 ? 'down' : 'up';
 
     if (newDirection !== direction) {
       setDirection(newDirection);
@@ -221,23 +215,23 @@ useEffect(() => {
   }, [target, position, direction]);
 
   const getSprite = () => {
-    if (state === "sleep") return sprites.sleep[frame % sprites.sleep.length];
-    if (state === "walk")
+    if (state === 'sleep') return sprites.sleep[frame % sprites.sleep.length];
+    if (state === 'walk')
       return (sprites.walk[direction] || sprites.walk.down)[
         frame % (sprites.walk[direction]?.length || 1)
       ];
-    if (state === "pet") return sprites.pet[frame % sprites.pet.length];
+    if (state === 'pet') return sprites.pet[frame % sprites.pet.length];
     return sprites.idle[frame % sprites.idle.length];
   };
 
   // Actualiza posición
   const handleUpdate = (latest) => {
     const left =
-      typeof latest.left === "number"
+      typeof latest.left === 'number'
         ? latest.left
         : parseFloat(latest.left || 0);
     const top =
-      typeof latest.top === "number" ? latest.top : parseFloat(latest.top || 0);
+      typeof latest.top === 'number' ? latest.top : parseFloat(latest.top || 0);
     const curX = left + HALF;
     const curY = top + HALF;
     setPosition({ x: curX, y: curY });
@@ -246,9 +240,9 @@ useEffect(() => {
     const dy = target.y - curY;
     const dist = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist <= DISTANCE_THRESHOLD && state === "walk") {
+    if (dist <= DISTANCE_THRESHOLD && state === 'walk') {
       setPosition({ x: target.x, y: target.y });
-      setState("idle");
+      setState('idle');
       setFrame(0);
       setLastInteraction(Date.now());
     }
@@ -266,14 +260,14 @@ useEffect(() => {
         alt="Lunita"
         className="lunita-sprite"
         style={{
-          position: "fixed",
+          position: 'fixed',
           left: position.x - HALF,
           top: position.y - HALF,
           width: SIZE,
           height: SIZE,
-          pointerEvents: "auto",
-          userSelect: "none",
-          imageRendering: "pixelated",
+          pointerEvents: 'auto',
+          userSelect: 'none',
+          imageRendering: 'pixelated',
         }}
         animate={{
           left: target.x - HALF,
@@ -281,9 +275,9 @@ useEffect(() => {
           scale: spriteScales[state] || 1,
         }}
         transition={{
-          type: "tween",
+          type: 'tween',
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
         }}
         onUpdate={handleUpdate}
         draggable={false}
@@ -300,20 +294,20 @@ useEffect(() => {
             transition={{ duration: 0.3 }}
             className="font-pixelify"
             style={{
-              position: "fixed",
+              position: 'fixed',
               left: position.x - 90,
               top: position.y - 20,
-              transform: "translateX(-50%)",
-              pointerEvents: "none",
+              transform: 'translateX(-50%)',
+              pointerEvents: 'none',
               fontSize: 16,
-              fontWeight: "bold",
-              color: "#ff3366",
-              backgroundColor: "white", // ✅ Fondo blanco
-              border: "1px solid #ccc", // ✅ Borde delgado gris
-              borderRadius: "8px", // ✅ Bordes redondeados
-              padding: "1px 8px", // ✅ Espaciado interno
-              textShadow: "1px 1px 2px white",
-              whiteSpace: "nowrap",
+              fontWeight: 'bold',
+              color: '#ff3366',
+              backgroundColor: 'white',
+              border: '1px solid #ccc',
+              borderRadius: '8px',
+              padding: '1px 8px',
+              textShadow: '1px 1px 2px white',
+              whiteSpace: 'nowrap',
               zIndex: 100,
             }}
           >
@@ -333,20 +327,20 @@ useEffect(() => {
             transition={{ duration: 0.3 }}
             className="font-pixelify"
             style={{
-              position: "fixed",
+              position: 'fixed',
               left: position.x - 90,
               top: position.y - 20,
-              transform: "translateX(-50%)",
-              pointerEvents: "none",
+              transform: 'translateX(-50%)',
+              pointerEvents: 'none',
               fontSize: 16,
-              fontWeight: "bold",
-              color: "#ff3366",
-              backgroundColor: "white", // ✅ Fondo blanco
-              border: "1px solid #ccc", // ✅ Borde delgado gris
-              borderRadius: "8px", // ✅ Bordes redondeados
-              padding: "1px 8px", // ✅ Espaciado interno
-              textShadow: "1px 1px 2px white",
-              whiteSpace: "nowrap",
+              fontWeight: 'bold',
+              color: '#ff3366',
+              backgroundColor: 'white',
+              border: '1px solid #ccc',
+              borderRadius: '8px',
+              padding: '1px 8px',
+              textShadow: '1px 1px 2px white',
+              whiteSpace: 'nowrap',
               zIndex: 100,
             }}
           >

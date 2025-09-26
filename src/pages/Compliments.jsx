@@ -1,46 +1,46 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import BackButton from "../components/BackButton";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import BackButton from '../components/BackButton';
 
 export default function BirthdayPoints({ onPrev, onNext }) {
   const points = [
     {
-      title: "Responsable y dedicada",
+      title: 'Responsable y dedicada',
       description:
-        "Buscas realizar las cosas poniendo mucha atención a los detalles, siempre intentando hacerlo lo mejor posible. No puedo evitar sentir una gran admiración por tí. Has demostrado que lo que te planteas, lo haces, eres realmente ejemplar✧",
-      compliment: "Eres admirable ⊹₊⟡⋆",
+        'Buscas realizar las cosas poniendo mucha atención a los detalles, siempre intentando hacerlo lo mejor posible. No puedo evitar sentir una gran admiración por tí. Has demostrado que lo que te planteas, lo haces, eres realmente ejemplar✧',
+      compliment: 'Eres admirable ⊹₊⟡⋆',
     },
     {
-      title: "Tu humor",
+      title: 'Tu humor',
       description:
-        "Tus bromas random, los gestos graciosos que haces, cada momento divertido ilumina más de lo que crees. Es un razgo característico tuyo que hace la vida mucho más feliz. Siento que es un razgo que te vuelve encantadora :3",
-      compliment: "Eres un rayito de sol ⋆☀︎｡",
+        'Tus bromas random, los gestos graciosos que haces, cada momento divertido ilumina más de lo que crees. Es un razgo característico tuyo que hace la vida mucho más feliz. Siento que es un razgo que te vuelve encantadora :3',
+      compliment: 'Eres un rayito de sol ⋆☀︎｡',
     },
     {
-      title: "Tu visión de la moda",
+      title: 'Tu visión de la moda',
       description:
-        "Tu forma de ver la moda, el como realmente cada uno tiene su estilo propio, me inspira mucho, jamás lo había visto de esa forma. Me has ayudado demasiado en cuanto a mi imagen propia. No olvides tu sueño, porque sé que eres capaz de hacer lo que te propongas <3",
-      compliment: "Eres capaz de grandes cosas",
-      compliment2: "( ꈍ◡ꈍ)",
+        'Tu forma de ver la moda, el como realmente cada uno tiene su estilo propio, me inspira mucho, jamás lo había visto de esa forma. Me has ayudado demasiado en cuanto a mi imagen propia. No olvides tu sueño, porque sé que eres capaz de hacer lo que te propongas <3',
+      compliment: 'Eres capaz de grandes cosas',
+      compliment2: '( ꈍ◡ꈍ)',
     },
     {
-      title: "Inteligente y razonable",
+      title: 'Inteligente y razonable',
       description:
-        "Sueles reflexionar muy bien las cosas, admiro tu forma de abordar temas y razonar. Tanto la reflexión sobre situaciones propias como de opinión o que pueden ser polémicos, no sueles dejarte llevar por lo que una mayoría dice y sueles ir de frente, segura de lo que piensas. Siempre puedo aprender nuevas cosas a partir de lo que planteas y opinas, eso lo valoro muchísimo. Tener la razón se te da muy bien jeje ;3",
-      compliment: "Eres increíble (˵ •̀ ᴗ - ˵ ) ✧",
+        'Sueles reflexionar muy bien las cosas, admiro tu forma de abordar temas y razonar. Tanto la reflexión sobre situaciones propias como de opinión o que pueden ser polémicos, no sueles dejarte llevar por lo que una mayoría dice y sueles ir de frente, segura de lo que piensas. Siempre puedo aprender nuevas cosas a partir de lo que planteas y opinas, eso lo valoro muchísimo. Tener la razón se te da muy bien jeje ;3',
+      compliment: 'Eres increíble (˵ •̀ ᴗ - ˵ ) ✧',
     },
     {
-      title: "Gusto musical",
+      title: 'Gusto musical',
       description:
-        "Has compartido tanta música con la que he logrado conectar. Jamás esperé llegar a escuchar tanto a BTS, entre tantas otras canciones y artistas, solo gracias a tí fue posible. Literalmente me abriste una parte de la música que no había explorado y simplemente puedo decir: que buenos temardos >:3",
-      compliment: "Tienes un exelente gusto musical ♬⋆.˚",
+        'Has compartido tanta música con la que he logrado conectar. Jamás esperé llegar a escuchar tanto a BTS, entre tantas otras canciones y artistas, solo gracias a tí fue posible. Literalmente me abriste una parte de la música que no había explorado y simplemente puedo decir: que buenos temardos >:3',
+      compliment: 'Tienes un exelente gusto musical ♬⋆.˚',
     },
     {
-      title: "Tu forma de ser",
+      title: 'Tu forma de ser',
       description:
-        "No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada charla extensa, cada juego, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella <3",
-      compliment: "Tu existencia es simplemente hermosa ❀࿐",
+        'No puedo evitar adorarte. Cada ocurrencia, cada gesto, cada charla extensa, cada juego, cada momento lindo junto a tí genera felicidad. Eres tú, en tu totalidad quién logra cautivar completamente y hacer de la vida un lugar más bonito contigo en ella <3',
+      compliment: 'Tu existencia es simplemente hermosa ❀࿐',
     },
   ];
 

@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
-import BackButton from "../components/BackButton";
+import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import BackButton from '../components/BackButton';
 
 export default function Letter({ onNext, onPrev }) {
   return (
@@ -14,8 +14,9 @@ export default function Letter({ onNext, onPrev }) {
         className="bg-white shadow-xl rounded-2xl p-6 max-w-lg border-4 border-pink-300"
       >
         <p className="text-lg mb-6">
-          Feliz cumpleaños a la mujer más hermosa que existe, con los ojitos más lindos y la cual aún no me
-          creo que pueda tener el privilegio de conocer.{" "}
+          Feliz cumpleaños a la mujer más hermosa que existe, con los ojitos más
+          lindos y la cual aún no me creo que pueda tener el privilegio de
+          conocer.{' '}
         </p>
         <p className="text-lg mb-6">(´｡• ◡ •｡`) ♡</p>
         <p className="text-lg mb-6">

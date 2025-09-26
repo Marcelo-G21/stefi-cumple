@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import BackButton from "../components/BackButton";
+import { motion } from 'framer-motion';
+import BackButton from '../components/BackButton';
 
 export default function Celebration({ onPrev }) {
   return (
@@ -27,11 +27,14 @@ export default function Celebration({ onPrev }) {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="text-md mb-6"
         >
-        Te queremos mucho digo- nyehehe &gt;:3 LSKDFSDF disfruta tu día cariño, este espacio quedará para que recuerdes lo maravillosa que eres y poder sacarte una sonrisa jeje :3 <br /> Te quiero muchooo &lt;3
+          Te queremos mucho digo- nyehehe &gt;:3 LSKDFSDF disfruta tu día
+          cariño, este espacio quedará para que recuerdes lo maravillosa que
+          eres y poder sacarte una sonrisa jeje :3 <br /> Te quiero muchooo
+          &lt;3
         </motion.p>
 
         <motion.img
-          src="/images/cumpleaños.jpg" // ⚡ reemplaza con la ruta de tu foto
+          src="/images/cumpleaños.jpg"
           alt="Cumpleaños"
           className="w-full rounded-xl shadow-md"
           initial={{ opacity: 0, scale: 0.9 }}

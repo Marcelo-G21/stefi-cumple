@@ -1,14 +1,23 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import BackButton from "../components/BackButton";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import BackButton from '../components/BackButton';
 
 const flowers = [
-  { emoji: "🌹", text: "Eres increíblemente hermosa, nunca dudes de ello" },
-  { emoji: "🌻", text: "Tu alegría ilumina como un rayito de sol" },
-  { emoji: "🌸", text: "Cada vez que te veo, tienes un aura tan hermosa y delicada" },
-  { emoji: "🌼", text: "Tienes los ojitos más lindos que existen" },
-  { emoji: "🌷", text: "Eres alguien muy admirable y capaz de lograr todo lo que te propongas" },
-  { emoji: "🌺", text: "No hay nadie más que pueda tener tu encanto, eres simplemente maravillosa" },
+  { emoji: '🌹', text: 'Eres increíblemente hermosa, nunca dudes de ello' },
+  { emoji: '🌻', text: 'Tu alegría ilumina como un rayito de sol' },
+  {
+    emoji: '🌸',
+    text: 'Cada vez que te veo, tienes un aura tan hermosa y delicada',
+  },
+  { emoji: '🌼', text: 'Tienes los ojitos más lindos que existen' },
+  {
+    emoji: '🌷',
+    text: 'Eres alguien muy admirable y capaz de lograr todo lo que te propongas',
+  },
+  {
+    emoji: '🌺',
+    text: 'No hay nadie más que pueda tener tu encanto, eres simplemente maravillosa',
+  },
 ];
 
 export default function Garden({ onNext, onPrev }) {
@@ -17,7 +26,7 @@ export default function Garden({ onNext, onPrev }) {
   return (
     <div className="flex items-center justify-center min-h-screen p-6">
       <BackButton onPrev={onPrev} data-lunita-ignore />
-  
+
       {/* Card grande */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -28,8 +37,8 @@ export default function Garden({ onNext, onPrev }) {
         <h2 className="text-2xl font-bold mb-6 text-pink-400 text-center">
           Un jardín florece °❀⋆.ೃ࿔*:･
         </h2>
-  
-        {/* Grid con flores (solo emoji) */}
+
+        {/* Grid con flores*/}
         <div className="grid grid-cols-2 gap-6">
           {flowers.map((flower, i) => (
             <motion.div
@@ -44,7 +53,7 @@ export default function Garden({ onNext, onPrev }) {
             </motion.div>
           ))}
         </div>
-  
+
         {/* Botón continuar */}
         <div className="mt-8 flex justify-center">
           <motion.button
@@ -58,7 +67,7 @@ export default function Garden({ onNext, onPrev }) {
           </motion.button>
         </div>
       </motion.div>
-  
+
       {/* Modal */}
       <AnimatePresence>
         {selectedFlower && (
@@ -79,12 +88,13 @@ export default function Garden({ onNext, onPrev }) {
               data-lunita-ignore
             >
               <span className="text-6xl">{selectedFlower.emoji}</span>
-              <p className="mt-4 text-pink-400 text-lg">{selectedFlower.text}</p>
+              <p className="mt-4 text-pink-400 text-lg">
+                {selectedFlower.text}
+              </p>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
-  
 }

@@ -1,12 +1,12 @@
-import { useState } from "react";
-import Lunita from "./components/Lunita"; // 👈 asegúrate que el path es correcto
-import BackgroundParticles from "./components/BackgroundParticles";
-import Welcome from "./pages/Welcome";
-import Letter from "./pages/Letter";
-import Compliments from "./pages/Compliments";
-import Garden from "./pages/Garden";
-import Stars from "./pages/Stars";
-import Celebration from "./pages/Celebration";
+import { useState } from 'react';
+import Lunita from './components/Lunita';
+import BackgroundParticles from './components/BackgroundParticles';
+import Welcome from './pages/Welcome';
+import Letter from './pages/Letter';
+import Compliments from './pages/Compliments';
+import Garden from './pages/Garden';
+import Stars from './pages/Stars';
+import Celebration from './pages/Celebration';
 
 export default function App() {
   const [step, setStep] = useState(0);
@@ -24,7 +24,6 @@ export default function App() {
     >
       <BackgroundParticles />
 
-      {/* 👇 Lunita siempre visible */}
       <Lunita />
 
       {step === 0 && <Welcome onNext={nextStep} />}
